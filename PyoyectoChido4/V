@@ -1,0 +1,23 @@
+﻿-- Table: usuarios
+
+-- DROP TABLE usuarios;
+
+CREATE TABLE usuarios
+(
+  "Nombre" character varying,
+  "Edad" character varying,
+  "Color" character varying,
+  "Deporte" character varying
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE usuarios
+  OWNER TO postgres;
+GRANT ALL ON TABLE usuarios TO public;
+GRANT ALL ON TABLE usuarios TO postgres WITH GRANT OPTION;
+GRANT SELECT("Nombre"), UPDATE("Nombre"), INSERT("Nombre"), REFERENCES("Nombre") ON usuarios TO public;
+GRANT SELECT("Edad"), UPDATE("Edad"), INSERT("Edad"), REFERENCES("Edad") ON usuarios TO public;
+GRANT SELECT("Color"), UPDATE("Color"), INSERT("Color"), REFERENCES("Color") ON usuarios TO public;
+GRANT SELECT("Deporte"), UPDATE("Deporte"), INSERT("Deporte"), REFERENCES("Deporte") ON usuarios TO public;
+
